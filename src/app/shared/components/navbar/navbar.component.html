@@ -1,0 +1,34 @@
+<nav class=" top-0 left-0 w-full z-50 flex justify-center">
+  <div class="nav_cont flex items-center justify-between p-4">
+    <div class="logo_cont text-white font-bold text-xl">
+      ADMIN
+    </div>
+
+    <button class="menu_btn lg:hidden text-white" (click)="toggleMenu()">
+      <mat-icon class="text-2xl">menu</mat-icon>
+    </button>
+
+    <div class="links flex flex-col lg:flex-row lg:items-center" [class.open]="menuOpen">
+      <ul class="flex flex-col lg:flex-row lg:ml-auto gap-4">
+        <li>
+          <a routerLink="/admin/dashboard" class="nav-link flex items-center gap-2 text-white">
+            <mat-icon>dashboard</mat-icon>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/admin/books" class="nav-link flex items-center gap-2 text-white">
+            <mat-icon>menu_book</mat-icon>
+            <span>Books</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/admin/users" class="nav-link flex items-center gap-2 text-white">
+            <mat-icon>people</mat-icon>
+            <span>Users</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
