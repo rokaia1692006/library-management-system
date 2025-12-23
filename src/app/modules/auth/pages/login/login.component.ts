@@ -22,7 +22,6 @@ private router = inject(Router);
 // private readonly authService = inject(AuthServicesService)
   LoginForm = new FormGroup({
 
-
 email : new FormControl('',[Validators.required,Validators.maxLength(50),Validators.email]),
 password : new FormControl('',[Validators.required,Validators.minLength(8)]),
 RememberME : new FormControl(false)
@@ -46,7 +45,7 @@ RememberME : new FormControl(false)
 //         next:(res)=>{
 //           console.log('wth',res);
 //           if(res.message == 'success'){
-// const remember = !!this.LoginForm.get('RememberME')?.value;
+const remember = !!this.LoginForm.get('RememberME')?.value;
 //             this.LoginForm.reset();
 //   this.sucess = true;
 // this.authService.setToken(res.token,remember);
@@ -69,7 +68,6 @@ RememberME : new FormControl(false)
     }
     else{
       this.loaderService.hide();
-      console.log(this.LoginForm.errors);
       this.LoginForm.markAllAsTouched();
 
     }

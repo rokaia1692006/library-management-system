@@ -1,34 +1,51 @@
-<nav class=" top-0 left-0 w-full z-50 flex justify-center">
-  <div class="nav_cont flex items-center justify-between p-4">
-    <div class="logo_cont text-white font-bold text-xl">
-      ADMIN
-    </div>
+<nav class="navbar relative border-b border-gray-700 px-4 py-2 flex items-center justify-between z-50"
+     [style.backgroundColor]="isDark ? '#192633' : '#E6F0FF'">
+  <button class="lg:hidden flex items-center justify-center text-gray-500 dark:text-gray-400 z-50" (click)="menuOpen = !menuOpen">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div class="flex items-center gap-2">
+    <span class="font-bold text-lg transition-colors duration-300" [ngClass]="{'text-gray-900': !isDark, 'text-white': isDark}">
+      AdminDash
+    </span>
+  </div>
+  <div class="flex-1 mx-4 hidden lg:flex relative items-center justify-center">
+  <div class="relative flex items-center rounded-full px-1 py-1 transition-colors duration-300 border"
+       [ngClass]="{'bg-slate-100 border-gray-300': !isDark, 'bg-slate-800 border-gray-600': isDark}">
+    <span class="absolute h-10 rounded-full transition-all duration-500 ease-out"
+          [ngStyle]="{'width.px': activeTabWidth, 'left.px': activeTabLeft, 'box-shadow': isDark ? '0 0 6px #13c8ec, 0 0 12px #13c8ec' : '0 0 2px #0B67E6, 0 0 6px #0B67E6'}">
+    </span>
+    <a *ngFor="let tab of tabs"
+       class="relative z-10 px-5 py-2 rounded-full text-sm font-semibold cursor-pointer transition-colors duration-300"
+       [ngClass]="{'text-primary font-bold': currentTitle === tab.title, 'text-gray-500 dark:text-gray-400': currentTitle !== tab.title}"
+       (click)="selectTab(tab)">
+      {{ tab.title }}
+    </a>
+  </div>
+</div>
 
-    <button class="menu_btn lg:hidden text-white" (click)="toggleMenu()">
-      <mat-icon class="text-2xl">menu</mat-icon>
+  <div class="flex items-center gap-2 z-50">
+    <app-LightDarkBtn></app-LightDarkBtn>
+    <button class="user-btn hidden lg:flex text-gray-500 dark:text-gray-400">
+      <mat-icon>account_circle</mat-icon>
     </button>
-
-    <div class="links flex flex-col lg:flex-row lg:items-center" [class.open]="menuOpen">
-      <ul class="flex flex-col lg:flex-row lg:ml-auto gap-4">
-        <li>
-          <a routerLink="/admin/dashboard" class="nav-link flex items-center gap-2 text-white">
-            <mat-icon>dashboard</mat-icon>
-            <span>Dashboard</span>
-          </a>
-        </li>
-        <li>
-          <a routerLink="/admin/books" class="nav-link flex items-center gap-2 text-white">
-            <mat-icon>menu_book</mat-icon>
-            <span>Books</span>
-          </a>
-        </li>
-        <li>
-          <a routerLink="/admin/users" class="nav-link flex items-center gap-2 text-white">
-            <mat-icon>people</mat-icon>
-            <span>Users</span>
-          </a>
-        </li>
-      </ul>
-    </div>
   </div>
 </nav>
+<div *ngIf="menuOpen"
+     class="draw fixed mt-7 top-14 left-0 w-64 h-[calc(100%-56px)] z-[999] overflow-hidden shadow-xl transform"
+     [ngClass]="{'translate-x-0': menuOpen, '-translate-x-full': !menuOpen, 'light': !isDark, 'dark': isDark}"
+     (click)="$event.stopPropagation()">
+  <ul class="flex flex-col gap-2 p-4">
+    <li *ngFor="let tab of tabs">
+      <a (click)="selectTab(tab)"
+         class="block px-4 py-2 rounded hover:bg-primary hover:text-white transition-colors duration-300 cursor-pointer">
+        {{ tab.title }}
+      </a>
+    </li>
+    <li class="mt-2 flex items-center justify-start gap-2">
+      <button class="user-btn text-gray-500 dark:text-gray-400">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+    </li>
+  </ul>
+</div>
+

@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { MatIcon } from "@angular/material/icon";
+import { LightDarkBtnComponent } from '../../shared/components/LightDarkBtn/LightDarkBtn.component';
 @Component({
   selector: 'app-auth-layout',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet,MatIcon,LightDarkBtnComponent],
   templateUrl: './auth-layout.component.html',
-  styleUrl: './auth-layout.component.scss'
+ styleUrls: ['./auth-layout.component.scss']
+
 })
 export class AuthLayoutComponent {
+
 
 }
