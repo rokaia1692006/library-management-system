@@ -1,0 +1,27 @@
+.category{
+color:black !important;
+
+
+}
+.addbtn{
+position:fixed;
+bottom:5px;
+right:5px;
+height:50px;
+width:50px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+}
+
+.addbtn mat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.addOrder{
+background-color:var(--background_color);
+}

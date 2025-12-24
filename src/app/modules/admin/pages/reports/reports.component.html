@@ -1,1 +1,47 @@
-<p>reports works!</p>
+<div class="report-container">
+  <h1 class="text-primary">System Reports (Admin Only)</h1>
+
+  <section class="charts-wrapper">
+    <div class="chart-card">
+      <h2 class="text-secondary">Total Sales</h2>
+      <button class="toggle-btn" (click)="toggleSalesPeriod()">
+        {{ showLastMonth ? 'Show Last Week' : 'Show Last Month' }}
+      </button>
+      <canvas baseChart
+              [data]="salesChartData"
+              [options]="salesChartOptions"
+              [type]="salesChartType">
+      </canvas>
+    </div>
+
+    <div class="chart-card">
+      <h2 class="text-secondary">Top 5 Customers (Last 3 Months)</h2>
+      <canvas baseChart
+              [data]="topCustomersChartData"
+              [options]="topCustomersChartOptions"
+              [type]="topCustomersChartType">
+      </canvas>
+    </div>
+  </section>
+
+  <section class="chart-section">
+    <h2 class="text-secondary">Top Selling Books (Last 3 Months)</h2>
+    <table>
+      <tr><th>Title</th><th>Copies Sold</th></tr>
+      <tr *ngFor="let book of topBooks">
+        <td>{{ book.title }}</td>
+        <td>{{ book.copiesSold }}</td>
+      </tr>
+    </table>
+  </section>
+
+ <section class="chart-section">
+  <h2 class="text-secondary">Total Orders for a Specific Book</h2>
+  <select [(ngModel)]="selectedBook" (change)="updateBookOrderCount()">
+    <option *ngFor="let book of topBooks" [value]="book.title">{{ book.title }}</option>
+  </select>
+  <p>Number of orders: {{ bookOrderCount }}</p>
+</section>
+
+  <button class="print-btn" (click)="printPage()">Print Report</button>
+</div>

@@ -6,13 +6,14 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "predeploy": "ng build --configuration production --base-href /library-management-system/",
+  "deploy": "gh-pages -d dist/library-management-system"
   },
   "private": true,
   "dependencies": {
     "@angular/cdk": "^19.2.15",
     "@angular/common": "^19.2.15",
-    "@angular/compiler": "^19.2.15",
     "@angular/core": "^19.2.15",
     "@angular/forms": "^19.2.15",
     "@angular/material": "^19.2.15",
@@ -22,6 +23,8 @@
     "@angular/router": "^19.2.15",
     "@angular/ssr": "^19.2.15",
     "@tailwindcss/postcss": "^4.1.18",
+    "chart.js": "^4.5.1",
+    "ng2-charts": "^8.0.0",
     "postcss": "^8.5.6",
     "rxjs": "^7.8.2",
     "tailwindcss": "^4.1.18",
@@ -31,8 +34,10 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.2.15",
     "@angular/cli": "^19.2.15",
+    "@angular/compiler": "^19.2.15",
     "@angular/compiler-cli": "^19.2.15",
     "@types/jasmine": "~5.1.0",
+    "gh-pages": "^6.3.0",
     "jasmine-core": "~5.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",

@@ -1,6 +1,6 @@
 import { NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { AbstractControl, FormGroup } from '@angular/forms';
+import { AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-errormsg',
@@ -11,5 +11,6 @@ import { AbstractControl, FormGroup } from '@angular/forms';
 export class ErrormsgComponent {
 @Input() control!: AbstractControl | null;
 @Input() label!: string;
-@Input() compare!: FormGroup;
+@Input() patternMsg: string = 'Invalid format.';
+@Input() mismatchMsg: string = 'Values do not match.';
 }

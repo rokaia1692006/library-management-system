@@ -3,15 +3,21 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 :root { height: 100%; display: flex; flex-direction: column;
---dark_background: #02101ee7;
+--dark_background: #02101e;
 --light_background: #e6f0ff;
 --dark_foreground: #ffffff;
 --light_foreground: #000000;
 --primary_color: #0B67E6;
 --secondary_color: #0B22E6;
---secondary_color_dark: #6e8cc1;
+--sec_color_light: #0B22E6;
+--sec_color_dark: #123775;
 --primary_color_dark: #0843A6;
+--prim_color_light: #4D90FF;
+--prim_color_dark: #0843A6;
 --error_color: #d93025;
+--hover_color: #135BAA;
+--hover_color_dark: #0A2A4E;
+--hover_color_light: #6EA8FF;
 --warning_color: #f9ab00;
 --info_color: #3491ad;
 --success_color: #0be690;
@@ -25,11 +31,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   --foreground_color: var(--dark_foreground);
   --particle_color: var(--particle_color);
   --text-color: #ffffff;
+  --secondary_color: var(--sec_color_dark);
+  --primary_color: var(--prim_color_dark);
+
+  --hover_color: var(--hover_color_dark);
 }
 .light-theme {
   --background_color: var(--light_background);
   --foreground_color: var(--light_foreground);
   --particle_color: var(--particle_color_light);
+  --secondary_color: var(--sec_color_light);
+  --primary_color: var(--prim_color_light);
+  --hover_color: var(--hover_color_light);
+
 }
 body {
   background-color: var(--background_color);

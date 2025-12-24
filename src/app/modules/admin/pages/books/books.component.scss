@@ -1,0 +1,110 @@
+.catgory{
+color:black !important;
+
+
+}
+.addbtn{
+position:fixed;
+bottom:5px;
+right:5px;
+height:50px;
+width:50px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+}
+.editbtn mat-icon{
+display:flex;
+align-items:center;
+justify-content:center;
+}
+.editbtn {
+  position: absolute;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+
+  padding: 4px;
+
+
+
+  transition: background-color 0.3s ease;
+}
+
+
+.fade{animation:fadeIn .25s;}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.editbtn{position:absolute;
+top:2px;
+right:2px;
+}
+
+.icon{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  justify-self: center;
+  align-items: center;
+  text-align: center;
+font-size:10px;
+
+}
+.qntbtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--secondary_color);
+  color: var(--foreground_color);
+  padding: 0;
+}
+.txt {
+max-width: 70px;
+   color: var(--foreground_color);
+}
+.qntbtn mat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  width: 100%;
+  height: 100%;
+  line-height: 1;
+}
+.qntbtn:hover {
+  background-color: var(--hover_color);
+}
+
+.addbtn mat-icon{
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.NewBookForm{
+background-color:var(--background_color);
+}
+
+.addbtn:hover{
+background-color: rgb(127, 206, 206);
+
+}
+.fade{
+
+transition: opacity 0.25s ease;
+
+
+animation: fadeIn 0.25s ease forwards;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+}
+to{
+opacity:1;
+}
+}

@@ -1,14 +1,12 @@
-<div *ngIf="control?.errors && control?.touched && label != 'rePassword'" class="error bg-red-100 border border-red-400 text-red-700 p-2 mt-2 rounded">
-  <ul class="list-disc pl-5 space-y-1">
-    <li *ngIf="control?.hasError('required')">{{label}} is required.</li>
-    <li *ngIf="control?.hasError('pattern') && label=='phone'">Phone must be a valid Egyptian number (e.g. 01012345678).</li>
-    <li *ngIf="control?.hasError('minlength')">{{label}} must be at least {{control?.getError('minlength').requiredLength}} characters long.</li>
-    <li *ngIf="control?.hasError('maxlength')">{{label}} cannot exceed {{control?.getError('maxlength').requiredLength}} characters.</li>
-    <li *ngIf="control?.hasError('email')">Email must be valid.</li>
-  </ul>
-</div>
-<div *ngIf="label=='rePassword' && compare.get('password')?.value !== compare.get('rePassword')?.value && compare.get('rePassword')?.touched" class="error bg-red-100 border border-red-400 text-red-700 p-2 mt-2 rounded">
-  <ul class="list-disc pl-5 space-y-1">
-    <li>Doesnt match</li>
-  </ul>
+<div *ngIf="control && control.touched && control.invalid" class="error-wrapper">
+  <div class="error bg-red-100 border border-red-400 text-red-700 p-2 mt-2 rounded">
+    <ul class="list-disc pl-5 space-y-1">
+      <li *ngIf="control.hasError('required')">{{label}} is required.</li>
+      <li *ngIf="control.hasError('minlength')">{{label}} must be at least {{control.getError('minlength').requiredLength}} characters.</li>
+      <li *ngIf="control.hasError('maxlength')">{{label}} cannot exceed {{control.getError('maxlength').requiredLength}} characters.</li>
+      <li *ngIf="control.hasError('email')">Email must be valid.</li>
+      <li *ngIf="control.hasError('pattern')">{{patternMsg}}</li>
+      <li *ngIf="control.hasError('mismatch')">{{mismatchMsg}}</li>
+    </ul>
+  </div>
 </div>

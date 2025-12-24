@@ -1,0 +1,57 @@
+
+
+.report-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+
+  h1, h2 { margin-bottom: 10px; }
+
+  .charts-wrapper {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .chart-card {
+    flex: 1 1 400px;
+    padding: 20px;
+    border: 1px solid var(--primary_color);
+    border-radius: 8px;
+    text-align: center;
+    background-color: var(--background_color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    canvas { margin: 20px auto; max-width: 100%; }
+  }
+
+  .toggle-btn {
+    background-color: var(--secondary_color);
+    color: var(--foreground_color);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    &:hover { background-color: var(--hover_color); }
+  }
+
+  .print-btn {
+    background-color: var(--primary_color);
+    color: var(--foreground_color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover { background-color: var(--secondary_color); }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    th, td { padding: 10px; border: 1px solid var(--primary_color); }
+    th { background-color: var(--primary_color); color: var(--foreground_color); }
+    tr:nth-child(even) { background-color: rgba(11, 103, 230, 0.1); }
+    tr:hover { background-color: rgba(11, 103, 230, 0.2); }
+  }
+}

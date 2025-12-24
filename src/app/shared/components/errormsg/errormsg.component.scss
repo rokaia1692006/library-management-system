@@ -1,0 +1,14 @@
+.error-wrapper{
+animation: slideFade 0.25s ease forwards;
+}
+
+@keyframes slideFade{
+from{
+opacity:0;
+transform:translateY(-5px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
